@@ -14,6 +14,7 @@ function mapUmkmRow(row, index) {
     qris: String(row['QRIS'] || row['qris'] || '').toLowerCase() === 'ya',
     whatsapp: String(row['WhatsApp'] || row['whatsapp'] || ''),
     category: row['Kategori'] || row['kategori'] || 'Lainnya',
+    gmaps: row['Gmaps'] || row['gmaps'] || null,
   };
 }
 

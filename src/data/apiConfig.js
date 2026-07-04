@@ -26,11 +26,11 @@ export const API_CONFIG = {
    * URL API SheetDB untuk data UMKM (Tab: UMKM).
    * Ganti null dengan URL Anda + '?sheet=UMKM' jika ingin menggunakan live data.
    */
-  umkm: 'https://sheetdb.io/api/v1/l125bb9d7nfqh?sheet=UMKM',
+  umkm: 'https://sheetdb.io/api/v1/l125bb9d7nfqh?sheet=UMKM Giling',
 
   /**
    * URL API SheetDB untuk data statistik demografi (Tab: Statistik).
    * Ganti null dengan URL Anda + '?sheet=Statistik' jika ingin menggunakan live data.
    */
-  stats: 'https://sheetdb.io/api/v1/l125bb9d7nfqh?sheet=Statistik',
+  stats: 'https://sheetdb.io/api/v1/l125bb9d7nfqh?sheet=Statistik Giling',
 };

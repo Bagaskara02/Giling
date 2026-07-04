@@ -64,6 +64,7 @@ export const siteConfig = {
       qris: true,
       whatsapp: '6281234567890',
       category: 'Makanan',
+      gmaps: null, // Ganti: 'https://maps.app.goo.gl/...'
     },
     {
       id: 2,

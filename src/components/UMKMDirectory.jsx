@@ -106,17 +106,34 @@ export default function UMKMDirectory() {
                       {item.description}
                     </p>
 
-                    <a
-                      href={`https://wa.me/${item.whatsapp}?text=${encodeURIComponent(
-                        `Halo, saya tertarik dengan produk ${item.name}`
-                      )}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 w-full justify-center px-4 py-2.5 bg-leaf-600 text-white text-sm font-medium rounded-lg hover:bg-leaf-700 transition-colors"
-                    >
-                      <WhatsAppIcon />
-                      Pesan via WhatsApp
-                    </a>
+                    {/* Action buttons */}
+                    <div className="flex items-center gap-2">
+                      <a
+                        href={`https://wa.me/${item.whatsapp}?text=${encodeURIComponent(
+                          `Halo, saya tertarik dengan produk ${item.name}`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 flex-1 justify-center px-4 py-2.5 bg-leaf-600 text-white text-sm font-medium rounded-lg hover:bg-leaf-700 transition-colors"
+                      >
+                        <WhatsAppIcon />
+                        WhatsApp
+                      </a>
+                      {item.gmaps && (
+                        <a
+                          href={item.gmaps}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center w-10 h-10 border border-gray-200 text-gray-500 rounded-lg hover:bg-leaf-50 hover:text-leaf-700 hover:border-leaf-200 transition-colors"
+                          title="Lihat di Google Maps"
+                        >
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                          </svg>
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </article>
               ))}
