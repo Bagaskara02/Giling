@@ -124,17 +124,6 @@ function DetailModal({ item, onClose }) {
                 Menerima QRIS
               </span>
             )}
-            {item.gmaps && (
-              <a
-                href={item.gmaps}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-leaf-50 border border-leaf-200 text-leaf-700 text-xs font-medium rounded hover:bg-leaf-100 transition-colors"
-              >
-                <MapPinIcon />
-                Lihat Lokasi
-              </a>
-            )}
           </div>
 
           {/* Name */}
@@ -147,18 +136,32 @@ function DetailModal({ item, onClose }) {
             {item.description}
           </p>
 
-          {/* WhatsApp CTA */}
-          <a
-            href={`https://wa.me/${item.whatsapp}?text=${encodeURIComponent(
-              `Halo, saya tertarik dengan produk ${item.name}`
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 w-full justify-center px-5 py-3 bg-leaf-600 text-white text-sm font-medium rounded-lg hover:bg-leaf-700 transition-colors"
-          >
-            <WhatsAppIcon />
-            Hubungi via WhatsApp
-          </a>
+          {/* Action buttons */}
+          <div className="flex items-center gap-2">
+            <a
+              href={`https://wa.me/${item.whatsapp}?text=${encodeURIComponent(
+                `Halo, saya tertarik dengan produk ${item.name}`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 flex-1 justify-center px-5 py-3 bg-leaf-600 text-white text-sm font-medium rounded-lg hover:bg-leaf-700 transition-colors"
+            >
+              <WhatsAppIcon />
+              Hubungi via WhatsApp
+            </a>
+            {item.gmaps && (
+              <a
+                href={item.gmaps}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-3 border border-gray-200 text-gray-600 text-sm font-medium rounded-lg hover:bg-leaf-50 hover:text-leaf-700 hover:border-leaf-200 transition-colors"
+                title="Lihat di Google Maps"
+              >
+                <MapPinIcon />
+                Lokasi
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>

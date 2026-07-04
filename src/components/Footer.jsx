@@ -46,25 +46,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-
-            {leadership.length > 0 && (
-              <>
-                <h3 className="text-xs font-semibold text-leaf-400 uppercase tracking-widest mb-5">
-                  Perangkat Desa
-                </h3>
-                <ul className="space-y-3">
-                  {leadership.map((leader, idx) => (
-                    <li key={idx} className="text-sm text-leaf-200/60">
-                      <span className="text-white/90 font-medium">
-                        {leader.position}
-                      </span>
-                      <br />
-                      {leader.name}
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
           </div>
 
           {/* ── Column 3 : Contact ── */}
