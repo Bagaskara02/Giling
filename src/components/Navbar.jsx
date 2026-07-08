@@ -6,7 +6,7 @@ const navLinks = [
   { label: 'Demografi', href: '#demografi' },
   { label: 'UMKM', href: '#umkm' },
   { label: 'Peta', href: '#peta' },
-  { label: 'Kontak', href: '#kontak' },
+  { label: 'Alamat', href: '#alamat' },
 ];
 
 export default function Navbar() {
