@@ -83,8 +83,27 @@ export default function Footer() {
       {/* ── Copyright bar ── */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          {/* Logos */}
+          <div className="flex items-center justify-center gap-6 mb-4">
+            <img
+              src="/images/LogoUPNYogyakarta.png"
+              alt="Logo UPN Veteran Yogyakarta"
+              className="h-10 sm:h-12 object-contain"
+            />
+            <img
+              src="/images/LOGOKKNGILING.png"
+              alt="Logo KKN Giling"
+              className="h-10 sm:h-12 object-contain"
+            />
+            <img
+              src="/images/LogoKulonProgo.jpg"
+              alt="Logo Kabupaten Kulon Progo"
+              className="h-10 sm:h-12 object-contain"
+            />
+          </div>
+
           <p className="text-center text-sm text-leaf-200/40">
-            &copy; {year} Padukuhan {padukuhan.name}, Desa {padukuhan.desa} | KKN AB 064 UPNVYK 2026
+            &copy; {year} Padukuhan {padukuhan.name}, Desa {padukuhan.desa} | KKN UPN Veteran Yogyakarta
           </p>
         </div>
       </div>

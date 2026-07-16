@@ -31,10 +31,17 @@ export default function Navbar() {
           {/* Logo */}
           <a
             href="#beranda"
-            className={`font-semibold tracking-tight transition-colors duration-300 ${
+            className={`flex items-center gap-2.5 font-semibold tracking-tight transition-colors duration-300 ${
               scrolled ? 'text-leaf-800' : 'text-white'
             }`}
           >
+            <img
+              src="/images/LOGOKKNGILING.png"
+              alt="Logo"
+              className={`h-8 md:h-9 w-auto object-contain transition-all duration-300 ${
+                scrolled ? 'opacity-100 scale-100' : 'opacity-0 scale-90 w-0 -mr-2.5'
+              }`}
+            />
             Padukuhan Giling
           </a>
 
