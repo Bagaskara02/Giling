@@ -94,21 +94,22 @@ function MapCard({ data, onOpenImage }) {
           />
         ) : hasImage ? (
           <div 
-            className="w-full h-[320px] md:h-[400px] cursor-pointer relative"
+            className="w-full min-h-[280px] md:min-h-[400px] cursor-pointer relative bg-warm-50 p-2"
             onClick={() => onOpenImage({ image: data.image, title: data.title })}
           >
             <img
               src={data.image}
               alt={data.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+              loading="lazy"
             />
             {/* Overlay hint to click */}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-              <span className="bg-white/95 text-gray-800 text-[13px] font-medium px-4 py-2 rounded-full flex items-center gap-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-end justify-center pb-4">
+              <span className="bg-white/95 text-gray-800 text-[13px] font-medium px-4 py-2 rounded-full flex items-center gap-2 shadow-lg opacity-70 group-hover:opacity-100 transition-opacity duration-300">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
                 </svg>
-                Perbesar Peta
+                Ketuk untuk perbesar
               </span>
             </div>
           </div>

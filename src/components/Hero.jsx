@@ -12,7 +12,7 @@ export default function Hero() {
       <img
         src="/images/TuguGiling.jpg"
         alt=""
-        className="absolute inset-0 w-full h-full object-cover object-[center_70%]"
+        className="absolute inset-0 w-full h-full object-cover object-[center_80%]"
       />
 
       {/* Green gradient overlay — blends with the image */}

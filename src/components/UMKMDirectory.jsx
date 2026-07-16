@@ -9,6 +9,33 @@ function truncate(text, limit) {
   return text.slice(0, limit).trimEnd() + '…';
 }
 
+/* ── Category-based gradient themes ── */
+const categoryGradients = {
+  Cemilan: 'from-amber-600/90 to-orange-800/90',
+  Makanan: 'from-emerald-600/90 to-teal-800/90',
+  Minuman: 'from-sky-600/90 to-blue-800/90',
+  Kerajinan: 'from-violet-600/90 to-purple-800/90',
+  Lainnya: 'from-leaf-600/90 to-leaf-800/90',
+};
+
+const categoryIcons = {
+  Cemilan: 'M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.87c1.355 0 2.697.055 4.024.165C17.155 8.51 18 9.473 18 10.608v2.513m-3-4.87v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-3.38a48.474 48.474 0 00-6-.37c-2.032 0-4.034.126-6 .37',
+  Makanan: 'M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.87c1.355 0 2.697.055 4.024.165C17.155 8.51 18 9.473 18 10.608v2.513m-3-4.87v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-3.38a48.474 48.474 0 00-6-.37c-2.032 0-4.034.126-6 .37',
+  Minuman: 'M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5',
+  Kerajinan: 'M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42',
+  Lainnya: 'M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z',
+};
+
+function getCategoryStyle(category) {
+  const key = Object.keys(categoryGradients).find(
+    k => k.toLowerCase() === (category || '').toLowerCase()
+  ) || 'Lainnya';
+  return {
+    gradient: categoryGradients[key],
+    icon: categoryIcons[key],
+  };
+}
+
 /* ── Icons ── */
 const WhatsAppIcon = () => (
   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
@@ -28,25 +55,6 @@ const MapPinIcon = () => (
     <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
   </svg>
-);
-
-const ImagePlaceholder = () => (
-  <div className="flex flex-col items-center justify-center gap-1">
-    <svg
-      className="w-7 h-7 text-warm-200"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1}
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-      />
-    </svg>
-    <span className="text-[11px] text-warm-200">Foto Produk</span>
-  </div>
 );
 
 const UMKMSkeleton = () => (
@@ -93,21 +101,27 @@ function DetailModal({ item, onClose }) {
         </button>
 
         {/* Image */}
-        <div className="relative h-56 sm:h-64 bg-warm-100 flex items-center justify-center overflow-hidden rounded-t-xl">
+        <div className="relative h-56 sm:h-64 flex items-center justify-center overflow-hidden rounded-t-xl">
           {item.image ? (
             <img
               src={item.image}
               alt={item.name}
               className="w-full h-full object-cover"
             />
-          ) : (
-            <div className="flex flex-col items-center gap-2">
-              <svg className="w-12 h-12 text-warm-200" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-              </svg>
-              <span className="text-xs text-warm-200">Foto Produk</span>
-            </div>
-          )}
+          ) : (() => {
+            const style = getCategoryStyle(item.category);
+            return (
+              <div className={`w-full h-full bg-gradient-to-br ${style.gradient} flex flex-col items-center justify-center gap-3 p-6`}>
+                <div className="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center">
+                  <svg className="w-8 h-8 text-white/80" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d={style.icon} />
+                  </svg>
+                </div>
+                <span className="text-white/90 text-sm font-medium text-center leading-snug">{item.name}</span>
+                <span className="text-white/50 text-[11px]">Foto segera hadir</span>
+              </div>
+            );
+          })()}
           {/* Category badge on image */}
           <span className="absolute top-3 left-3 px-2.5 py-0.5 bg-white/90 text-gray-600 text-xs font-medium rounded">
             {item.category}
@@ -205,16 +219,26 @@ export default function UMKMDirectory() {
                     onClick={() => setSelected(item)}
                   >
                     {/* Image */}
-                    <div className="relative h-44 bg-warm-100 flex items-center justify-center overflow-hidden">
+                    <div className="relative h-44 flex items-center justify-center overflow-hidden">
                       {item.image ? (
                         <img
                           src={item.image}
                           alt={item.name}
                           className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
                         />
-                      ) : (
-                        <ImagePlaceholder />
-                      )}
+                      ) : (() => {
+                        const style = getCategoryStyle(item.category);
+                        return (
+                          <div className={`w-full h-full bg-gradient-to-br ${style.gradient} flex flex-col items-center justify-center gap-2 p-4 group-hover:opacity-90 transition-opacity`}>
+                            <div className="w-12 h-12 rounded-xl bg-white/15 backdrop-blur-sm flex items-center justify-center">
+                              <svg className="w-6 h-6 text-white/80" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" d={style.icon} />
+                              </svg>
+                            </div>
+                            <span className="text-white/60 text-[10px] font-medium">Foto segera hadir</span>
+                          </div>
+                        );
+                      })()}
                       <span className="absolute top-2.5 left-2.5 px-2 py-0.5 bg-white/90 text-gray-600 text-[11px] font-medium rounded">
                         {item.category}
                       </span>
