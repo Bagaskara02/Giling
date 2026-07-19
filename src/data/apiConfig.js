@@ -39,7 +39,7 @@ const SHEET_FASILITAS = 'Fasilitas Giling';
  * langsung dari Google tanpa perantara SheetDB.
  */
 function buildGoogleSheetsUrl(sheetName) {
-  return `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}`;
+  return `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}&_=${Date.now()}`;
 }
 
 // Cek apakah Spreadsheet ID sudah dikonfigurasi
